@@ -36,3 +36,19 @@ const iniciarRelogio = (reset) => {
       }
     }
 };
+
+const exibirTempoRestante = () => {
+    const segundosRestantes = tempoRestanteNaSessao;
+    let resultado = "";
+    const segundos = segundosRestantes % 60;
+    const minutos = parseInt(segundosRestantes / 60) % 60;
+    let horas = parseInt(segundosRestantes / 3600);
+  
+    function adicionandoZeros(tempo) {
+      return tempo < 10 ? `0${tempo}` : tempo;
+    }
+  
+    if (horas > 0) resultado += `${horas}`;
+    resultado += `${adicionandoZeros(minutos)}:${adicionandoZeros(segundos)}`;
+    contador.innerText = resultado.toString();
+  };
